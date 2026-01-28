@@ -6,11 +6,12 @@ public class HesapMakinesi {
         while (true) {
 
             //Görsel şema
-            System.out.println("-------------------------------------");
+            System.out.println("        HESAP MAKİNESİ");
+            System.out.println("------------------------------");
             System.out.println("| +(1) | -(2) | x(3) | /(4) |");
             System.out.println("| \u221A(5) | ^(6) | %(7) | !(8) |");
             System.out.println("|        0 - ÇIKIŞ          |");
-            System.out.println("-------------------------------------");
+            System.out.println("------------------------------");
 
             //Kullanıcıyı bilgilendirme
             System.out.print("HANGİ İŞLEMİ YAPACAĞINIZI SEÇİNİZ: ");
@@ -36,20 +37,20 @@ public class HesapMakinesi {
             //Burada kullanıcı sayı girerek metoda gider
             switch (islemSec) {
                 case 1:
-                    System.out.println(toplama(islemSec, dizi));
+                    System.out.println("SONUÇ: " + toplama(dizi,giris));
                     break;
                 case 2:
-                    System.out.println(cikarma(islemSec, dizi));
+                    System.out.println("SONUÇ: " + cikarma(dizi,giris));
                     break;
                 case 3:
-                    System.out.println(carpma(islemSec, dizi));
+                    System.out.println("SONUÇ: " + carpma(dizi,giris));
                     break;
                 case 4:
-                    System.out.println(bolme(islemSec, dizi));
+                    System.out.println("SONUÇ: " + bolme(dizi,giris));
                     break;
                 case 5:
                     if (diziSayisi == 1) {
-                        System.out.println(karekok(islemSec, dizi));
+                        System.out.println("SONUÇ: " + karekok(giris));
                         break;
                     } else {
                         System.out.println("HATA:LÜTFEN BİR TANE SAYI GİRİNİZ!");
@@ -57,7 +58,7 @@ public class HesapMakinesi {
                     }
                 case 6:
                     if (diziSayisi == 2) {
-                        System.out.println(us(islemSec, dizi));
+                        System.out.println("SONUÇ: " + us( dizi,giris));
                         break;
                     } else {
                         System.out.println("HATA:ÜS ALMA İŞLEMİ İÇİN 2 SAYI GİRİNİZ (TABAN VE ÜS)!");
@@ -65,7 +66,7 @@ public class HesapMakinesi {
                     }
                 case 7:
                     if (diziSayisi == 1) {
-                        System.out.println(yuzdelik(islemSec, dizi));
+                        System.out.println("SONUÇ: " + yuzdelik(giris));
                         break;
                     } else {
                         System.out.println("HATA:LÜTFEN BİR TANE SAYI GİRİNİZ!");
@@ -73,7 +74,7 @@ public class HesapMakinesi {
                     }
                 case 8:
                     if (diziSayisi == 1) {
-                        System.out.println(faktoriyel(islemSec, dizi));
+                        System.out.println("SONUÇ: " + faktoriyel(giris));
                         break;
                     } else {
                         System.out.println("HATA:LÜTFEN BİR TANE SAYI GİRİNİZ!");
@@ -88,9 +89,7 @@ public class HesapMakinesi {
         }
     }
     //Toplama metodu
-    static double toplama(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double toplama(int[] dizi,Scanner giris){
         int toplam = 0;
         for (int i =0 ;i <dizi.length;i++){
             System.out.print((i+1) + ".SAYIYI GİRİNİZ: ");
@@ -100,9 +99,7 @@ public class HesapMakinesi {
         return toplam;
     }
     //Çıkarma Metodu
-    static double cikarma(int islem, int[] dizi) {
-        Scanner giris = new Scanner(System.in);
-
+    static double cikarma(int[] dizi,Scanner giris) {
         int cikarmaa = 0;
         for (int i = 0; i < dizi.length; i++) {
             System.out.print((i + 1) + ".SAYIYI GİRİNİZ: ");
@@ -120,9 +117,7 @@ public class HesapMakinesi {
         return cikarmaa;
     }
     //Çarpma metodu
-    static double carpma(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double carpma(int[] dizi,Scanner giris){
         int carpmaa = 1;
         for (int i =0 ;i <dizi.length;i++){
             System.out.print((i+1) + ".SAYIYI GİRİNİZ: ");
@@ -132,9 +127,7 @@ public class HesapMakinesi {
         return carpmaa;
     }
     //Bölme metodu
-    static double bolme(int islem, int[] dizi) {
-        Scanner giris = new Scanner(System.in);
-
+    static double bolme( int[] dizi,Scanner giris) {
         double bolmee = 0;
         for (int i = 0; i < dizi.length; i++) {
             System.out.print((i + 1) + ".SAYIYI GİRİNİZ: ");
@@ -157,9 +150,7 @@ public class HesapMakinesi {
         return bolmee;
     }
     //Karekök metodu
-    static double karekok(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double karekok(Scanner giris){
         double karekokk = 0;
         System.out.print("KAREKÖKÜ ALINACAK SAYIYI GİRİNİZ:");
         int karekokGir = giris.nextInt();
@@ -168,9 +159,7 @@ public class HesapMakinesi {
        return karekokk;
     }
     //Üs alma metodu
-    static double us(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double us(int[] dizi,Scanner giris){
         System.out.print("TABANI GİRİNİZ:");
         dizi[0] = giris.nextInt();
         System.out.print("ÜSSÜ GİRİNİZ:");
@@ -182,9 +171,7 @@ public class HesapMakinesi {
 
     }
     //Yüzdelik metodu
-    static double yuzdelik(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double yuzdelik(Scanner giris){
         System.out.print("YÜZDELİK ALINACAK SAYIYI GİRİNİZ:");
         int sayi = giris.nextInt();
         System.out.print("YÜZDELİK ORANINI GİRİNİZ:");
@@ -195,9 +182,7 @@ public class HesapMakinesi {
 
     }
     //Faktöriyel metodu
-    static double faktoriyel(int islem,int[] dizi){
-        Scanner giris = new Scanner(System.in);
-
+    static double faktoriyel(Scanner giris){
         int fact = 1;
         System.out.print("FAKTÖRİYELİ ALINACAK SAYIYI GİRİNİZ:");
         int factt = giris.nextInt();
